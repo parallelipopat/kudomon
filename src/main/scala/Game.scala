@@ -20,7 +20,7 @@ object Game {
         var kudo_at_pos = grid(a.pos._1)(a.pos._2)
         kudo_at_pos match {
             //Kudomon can be caught; remove Kudomon from grid once caught
-            case Some(x) => a.insert_kudo(x); grid(a.pos._1)(a.pos._2) = None
+            case Some(x) => a.insert_kudo(x); grid(a.pos._1)(a.pos._2) = None; x.pos = None;
             case None => {}
         }
     }
