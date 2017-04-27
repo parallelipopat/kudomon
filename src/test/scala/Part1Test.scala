@@ -20,6 +20,7 @@ class Part1Test extends FunSuite {
     assertCompiles("var x = new Flairy")
   }
   test("Trainer") {
-    assertCompiles("var x = new Trainer("abc")")
+    var name = "abc"
+    assertCompiles("var x = new Trainer(name)")
   }
 }
