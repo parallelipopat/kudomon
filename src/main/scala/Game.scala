@@ -19,8 +19,18 @@ object Game {
     def kudo_check(a : Trainer) = {
         var kudo_at_pos = grid(a.pos._1)(a.pos._2)
         kudo_at_pos match {
-            //Kudomon can be caught; remove Kudomon from grid once caught
-            case Some(x) => a.insert_kudo(x); grid(a.pos._1)(a.pos._2) = None; x.pos = None;
+            /*We solve the problem by making the Kudomon 'invisible' to the trainer
+              who has already caught it. So while the Kudomon is still present on
+              the map for other trainers, it isn't for the trainer who has caught it.
+              I was considering a concurrent solution where each block has a
+              boolean semaphore attached to it that prevents more than one
+              trainer having access to that block at any point in time, but that
+              is not scalable, and quite restrictive. */
+              
+            case Some(x) => {if (!a.kudo_collection.contains(x)) {
+                                 a.insert_kudo(x);
+                             }
+                            }
             case None => {}
         }
     }
