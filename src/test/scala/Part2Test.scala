@@ -10,7 +10,6 @@ class Part2Test extends FunSuite {
 
   test("MoveS") {
     Game.fill_grid(List())
-    println (Game.size)
     var a = new Trainer("A")
     a.move('N')
     a.move('S')
@@ -19,7 +18,6 @@ class Part2Test extends FunSuite {
   
   test("MoveBoundaryS") {
     Game.fill_grid(List())
-    println (Game.size)
     var a = new Trainer("A")
     a.move('S')
     assert(a.pos == (0,0))
@@ -27,7 +25,6 @@ class Part2Test extends FunSuite {
   
   test("MoveE") {
     Game.fill_grid(List())
-    println (Game.size)
     var a = new Trainer("A")
     a.move('E')
     assert(a.pos == (1,0))
@@ -35,7 +32,6 @@ class Part2Test extends FunSuite {
   
   test("MoveW") {
     Game.fill_grid(List())
-    println (Game.size)
     var a = new Trainer("A")
     a.move('E')
     a.move('W')
@@ -44,7 +40,6 @@ class Part2Test extends FunSuite {
 
   test("MoveBoundaryW") {
     Game.fill_grid(List())
-    println (Game.size)
     var a = new Trainer("A")
     a.move('W')
     assert(a.pos == (0,0))
@@ -52,7 +47,6 @@ class Part2Test extends FunSuite {
   
   test("MoveInvalid") {
     Game.fill_grid(List())
-    println (Game.size)
     var a = new Trainer("A")
     a.move('Z')
     assert(a.pos == (0,0))
